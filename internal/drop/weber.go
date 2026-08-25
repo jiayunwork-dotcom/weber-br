@@ -7,7 +7,6 @@ func WeberNumber(f Fluids, U, d float64) (float64, error) {
 	if err := ValidateInput(in); err != nil {
 		return 0, err
 	}
-	U = applyStoredU(U)
 	if U == 0 {
 		return 0, nil
 	}
