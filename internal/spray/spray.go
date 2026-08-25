@@ -71,7 +71,11 @@ func StabilityMargin(result drop.Result) float64 {
 
 func ScanVelocity(f drop.Fluids, d float64, velocities []float64) ([]drop.Result, error) {
 	out := make([]drop.Result, 0, len(velocities))
+	cap := scanCapacity()
 	for _, u := range velocities {
+		if len(out) >= cap {
+			break
+		}
 		result, err := drop.Evaluate(drop.Input{Fluids: f, U: u, D: d})
 		if err != nil {
 			return nil, err
