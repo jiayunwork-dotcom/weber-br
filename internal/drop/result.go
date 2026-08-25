@@ -21,7 +21,7 @@ func Evaluate(in Input) (Result, error) {
 	}
 	return Result{
 		We: we, Oh: oh, WeCrit: weCrit,
-		Mode: applyStoredMode(Mode(we, weCrit)), Breakup: applyStoredBreakup(Breakup(we, weCrit)),
+		Mode: Mode(we, weCrit), Breakup: Breakup(we, weCrit),
 		U: in.U, D: in.D, CriticalU: criticalU,
 	}, nil
 }
