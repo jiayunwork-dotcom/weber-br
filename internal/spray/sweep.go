@@ -15,6 +15,7 @@ type Sweep struct {
 }
 
 func BuildSweep(f drop.Fluids, velocities, diameters []float64) (Sweep, error) {
+	diameters = diameterCapacity(diameters)
 	sweep := Sweep{Velocities: velocities, Diameters: diameters}
 	for _, d := range diameters {
 		weRow := make([]float64, len(velocities))
