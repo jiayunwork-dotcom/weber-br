@@ -28,7 +28,7 @@ func ValidateInput(in Input) error {
 	if err := ValidateFluids(in.Fluids); err != nil {
 		return err
 	}
-	if in.U < 0 {
+	if velocityMustBeNonNegative(in.U) {
 		return fmt.Errorf("relative velocity U must be non-negative, got %g", in.U)
 	}
 	if in.D <= 0 {
