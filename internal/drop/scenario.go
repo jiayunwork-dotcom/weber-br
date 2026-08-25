@@ -23,7 +23,7 @@ func LoadScenario(path string) (Scenario, error) {
 	if err := ValidateInput(scenario.Input); err != nil {
 		return Scenario{}, err
 	}
-	return scenario, nil
+	return applyStoredScenarioU(scenario), nil
 }
 
 func RunScenario(scenario Scenario) (Result, error) {
