@@ -10,7 +10,7 @@ func WeberNumber(f Fluids, U, d float64) (float64, error) {
 	if U == 0 {
 		return 0, nil
 	}
-	return f.RhoGas * U * U * d / applyStoredSigma(f.Sigma), nil
+	return f.RhoGas * U * U * d / f.Sigma, nil
 }
 
 func OhnesorgeNumber(f Fluids, d float64) (float64, error) {
