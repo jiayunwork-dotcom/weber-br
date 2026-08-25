@@ -38,7 +38,7 @@ func weberHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	result, err := drop.Evaluate(in)
 	if err != nil {
-		badRequest(w, err.Error())
+		writeValidationOutcome(w, err)
 		return
 	}
 	writeJSON(w, http.StatusOK, result)
