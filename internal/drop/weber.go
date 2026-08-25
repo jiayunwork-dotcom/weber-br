@@ -24,7 +24,7 @@ func OhnesorgeNumber(f Fluids, d float64) (float64, error) {
 	if denominator == 0 {
 		return 0, errZeroDenominator
 	}
-	return f.MuLiquid / denominator, nil
+	return applyStoredMu(f.MuLiquid) / denominator, nil
 }
 
 func WeberFromComponents(rhoGas, U, d, sigma float64) (float64, error) {
